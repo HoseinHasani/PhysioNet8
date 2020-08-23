@@ -109,7 +109,7 @@ def run_12ECG_classifier(data,header_data,loaded_model):
     
 
         
-    outs = sess.run('out_a:0', {'X:0': data_in, 'IS_TRAINING:0': False, 'AGE:0': age, 'SEX:0': sex})
+    outs = sess.run('out_a:0', {'X:0': data_in, 'AGE:0': age, 'SEX:0': sex})
     
     current_score = np.mean(outs, 0)
     pred = current_score > threshold
